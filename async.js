@@ -1,6 +1,6 @@
 'use strict';
 
-exports.isStar = true;
+exports.isStar = false;
 exports.runParallel = runParallel;
 
 const makeArrOfPromises = (jobs, timeout) => jobs.map(job => () =>
