@@ -24,8 +24,7 @@ function runParallel(jobs, parallelNum, timeout = 1000) {
         function start(promise) {
             const idx = currentJob++;
             const handler = data => finish(data, idx);
-            promise().then(handler)
-                .catch(handler);
+            promise().then(handler);
         }
 
         function finish(data, idx) {
