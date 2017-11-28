@@ -4,9 +4,9 @@ exports.isStar = true;
 exports.runParallel = runParallel;
 
 const makeArrOfPromises = (jobs, timeout) => jobs.map(job => () =>
-    new Promise((resolve, reject) => {
-        job().then(resolve, reject);
-        setTimeout(() => reject(new Error('timed out')), timeout);
+    new Promise(resolve => {
+        job().then(resolve, resolve);
+        setTimeout(() => resolve(new Error('timed out')), timeout);
     }));
 
 function runParallel(jobs, parallelNum, timeout = 1000) {
